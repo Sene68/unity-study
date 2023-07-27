@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    [SerializeField]
+    private GameObject weapon;
+
+    [SerializeField]
+    private Transform shootTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +35,12 @@ public class Player : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float toX = Mathf.Clamp(mousePosition.x, -2.35f, 2.35f);
         transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
+
+        Shoot();
+    }
+
+    void Shoot() 
+    {
+        Instantiate(weapon, shootTransform.position, Quaternion.identity);
     }
 }
