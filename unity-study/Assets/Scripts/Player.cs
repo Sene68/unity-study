@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform shootTransform;
 
+    [SerializeField]
+    private float shootInterval = 0.5f;
+
+    private float lastShotTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +46,12 @@ public class Player : MonoBehaviour
 
     void Shoot() 
     {
-        Instantiate(weapon, shootTransform.position, Quaternion.identity);
+        if (Time.time - lastShotTime > shootInterval) {
+            Instantiate(weapon, shootTransform.position, Quaternion.identity);
+
+            lastShotTime = Time.time;
+        }
+
+        
     }
 }
