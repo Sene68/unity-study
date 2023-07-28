@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Transform shootTransform;
 
     [SerializeField]
-    private float shootInterval = 0.5f;
+    private float shootInterval = 0.05f;
 
     private float lastShotTime = 0f;
 

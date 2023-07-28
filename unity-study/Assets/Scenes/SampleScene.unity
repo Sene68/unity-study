@@ -325,6 +325,7 @@ MonoBehaviour:
   moveSpeed: 4
   weapon: {fileID: 8852909198743088926, guid: f38f705f0a03714409224a32625ede4d, type: 3}
   shootTransform: {fileID: 1800764018}
+  shootInterval: 0.1
 --- !u!58 &335958276
 CircleCollider2D:
   m_ObjectHideFlags: 0
