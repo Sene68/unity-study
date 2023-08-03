@@ -12,8 +12,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int index = Random.Range(0, enemies.Length);
-        SpawnEnemy(arrPosX[0], index);
+        foreach (float posX in arrPosX) {
+            int index = Random.Range(0, enemies.Length);    
+            SpawnEnemy(posX, index);
+        }
     }
 
     void SpawnEnemy(float posX, int index)
