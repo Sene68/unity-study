@@ -27,10 +27,17 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
+        int spawnCount = 0;
+        int enemyIndex = 0;
+
         while (true) {
             foreach (float posX in arrPosX) {
-                int index = Random.Range(0, enemies.Length);    
-                SpawnEnemy(posX, index);
+                SpawnEnemy(posX, enemyIndex);
+            }
+
+            spawnCount += 1;
+            if (spawnCount % 10 == 0) {
+                enemyIndex += 1;
             }
 
             yield return new WaitForSeconds(spawnInterval);
@@ -41,6 +48,15 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy(float posX, int index)
     {
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
+
+        if (Random.Range(0, 5) == 0) {
+            index += 1;
+        }
+
+        if (index >= enemies.Length) {
+            index = enemies.Length -1;
+        }
+
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
     }
 
