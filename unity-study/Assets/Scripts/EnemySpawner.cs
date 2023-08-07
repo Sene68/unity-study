@@ -27,17 +27,19 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
+        float moveSpeed = 5f;
         int spawnCount = 0;
         int enemyIndex = 0;
 
         while (true) {
             foreach (float posX in arrPosX) {
-                SpawnEnemy(posX, enemyIndex);
+                SpawnEnemy(posX, enemyIndex, moveSpeed);
             }
 
             spawnCount += 1;
             if (spawnCount % 10 == 0) {
                 enemyIndex += 1;
+                moveSpeed += 2;
             }
 
             yield return new WaitForSeconds(spawnInterval);
@@ -45,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    void SpawnEnemy(float posX, int index)
+    void SpawnEnemy(float posX, int index, float moveSpeed)
     {
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
 
@@ -57,7 +59,9 @@ public class EnemySpawner : MonoBehaviour
             index = enemies.Length -1;
         }
 
-        Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        GameObject enemyObject = Instantiate(enemies[index], spawnPos, Quaternion.identity);
+        Enemy enemy = enemyObject.GetComponent<Enemy>();
+        enemy.SetMoveSpeed(moveSpeed);
     }
 
     // Update is called once per frame
