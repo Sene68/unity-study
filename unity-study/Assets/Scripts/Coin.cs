@@ -7,7 +7,17 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Jump();
+    }
+
+    void Jump()
+    {
+        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+
+        float randomJumpForce = Random.Range(4f, 8f);
+        Vector2 jumpVelocity = Vector2.up * randomJumpForce;
+
+        rigidbody.AddForce(jumpVelocity, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
