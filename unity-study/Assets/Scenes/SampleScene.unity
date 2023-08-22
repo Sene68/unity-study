@@ -408,7 +408,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  weapon: {fileID: 8852909198743088926, guid: f38f705f0a03714409224a32625ede4d, type: 3}
+  weapons:
+  - {fileID: 8852909198743088926, guid: f38f705f0a03714409224a32625ede4d, type: 3}
+  - {fileID: 8852909198743088926, guid: 83801ac3476d5f547b523dbe90ad4e88, type: 3}
+  - {fileID: 8852909198743088926, guid: 5134e63245f35584db205bd4312221cd, type: 3}
   shootTransform: {fileID: 1800764018}
   shootInterval: 0.1
 --- !u!58 &335958276
@@ -602,7 +605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248, y: -100}
+  m_AnchoredPosition: {x: 248, y: 0}
   m_SizeDelta: {x: 424.2708, y: 145.67383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535691915
