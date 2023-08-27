@@ -42,7 +42,10 @@ public class Player : MonoBehaviour
         float toX = Mathf.Clamp(mousePosition.x, -2.35f, 2.35f);
         transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
 
-        Shoot();
+        if (GameManager.instance.isGameOver == false) {
+            Shoot();
+        }
+        
     }
 
     void Shoot() 

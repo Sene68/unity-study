@@ -773,6 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1913161703}
+  isGameOver: 0
 --- !u!4 &796469733
 Transform:
   m_ObjectHideFlags: 0
