@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
+    [SerializeField]
+    private GameObject gameOverPanel;
+
     private int coin = 0;
 
     [HideInInspector]
@@ -44,5 +47,7 @@ public class GameManager : MonoBehaviour
         if (enemySpawner != null) {
             enemySpawner.StopEnemyRoutine();
         }
+
+        gameOverPanel.SetActive(true);
     }
 }
