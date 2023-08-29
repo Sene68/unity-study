@@ -48,6 +48,11 @@ public class GameManager : MonoBehaviour
             enemySpawner.StopEnemyRoutine();
         }
 
+        Invoke("ShowGameOverPanel", 1f);
+    }
+
+    void ShowGameOverPanel()
+    {
         gameOverPanel.SetActive(true);
     }
 }
